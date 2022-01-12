@@ -7,6 +7,8 @@ UNROLL        ?=1
 LOOPLIMIT     ?=1
 SUFFIX        ?=
 
+# include ../examples/tea/Makefile
+
 BASE           =$(notdir $(EXAMPLE))
 MODELFILE     ?=$(WD)/$(BASE:.c:.model)
 

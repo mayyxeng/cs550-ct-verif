@@ -3,7 +3,8 @@ Vagrant.configure(2) do |config|
   project_name = File.dirname(__FILE__).split("/").last
 
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = 6144 # set VM memory to 6GB
+    vb.memory = 131072 # set VM memory to 6GB
+    vb.cpus = 12
   end
   config.vm.synced_folder ".", "/home/vagrant/#{project_name}"
 
@@ -17,7 +18,7 @@ Vagrant.configure(2) do |config|
   # end
 
   config.vm.provision "shell", binary: true, inline: <<-SHELL
-    sudo apt-get install -yy git
+    sudo apt-get install -yy git wget cmake
     cd /home/vagrant/#{project_name}
     git submodule init tools/smack tools/bam-bam-boogieman
     git submodule init tools/boogie tools/z3

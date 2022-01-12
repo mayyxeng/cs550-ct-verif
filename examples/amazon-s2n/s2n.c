@@ -1,5 +1,5 @@
-#include "../smack.h"
-
+// #include "smack.h"
+#include "../ct-verif.h"
 #include "tls/s2n_record.h"
 
 int s2n_verify_cbc_wrapper(struct s2n_connection *conn, struct s2n_hmac_state *hmac, struct s2n_blob *decrypted) {
@@ -17,5 +17,5 @@ int s2n_verify_cbc_wrapper(struct s2n_connection *conn, struct s2n_hmac_state *h
   declassified_out(region_of_ret());
   declassified_out(mem_region(decrypted->data,decrypted->size));
 
-  return s2n_verify_cbc_wrapper(conn,hmac,decrypted);
+  return s2n_verify_cbc(conn,hmac,decrypted);
 }

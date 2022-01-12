@@ -38,6 +38,9 @@ SHA256_LIBS      = sodium/utils.c \
                    randombytes/sysrandom/randombytes_sysrandom.c randombytes/randombytes.c \
                    crypto_hash/sha256/cp/hash_sha256.c
 
+
+sha256_bc: $(SHA256_LIBS)
+	clang-8 -c $(SHA256_LIBS) -o sha256.bc
 sha256_transform:
 	@make sha256_transform-verify
 
